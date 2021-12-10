@@ -20,3 +20,7 @@ html_charts/
 
 # vscode
 .vscode
+
+# Local Build Files
+build/
+analyze_meltano.egg-info/

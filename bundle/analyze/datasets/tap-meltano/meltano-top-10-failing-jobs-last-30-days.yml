@@ -1,0 +1,30 @@
+version: datasets/v0.2
+source: tap-meltano
+title: Top 10 Failing Meltano Jobs Last 30 Days
+questions: In the last 30 days, what Meltano jobs are failing the most?
+description: |-
+  Top 10 failing Meltano jobs for the last 30 days.
+  #meltano
+metadata: |-
+  {
+    "name": "mdj",
+    "label": "Top 10 Failing Meltano Jobs Last 30 Days", 
+    "related_table": {
+      "columns": [
+        {"name": "job_id", "label": "Job Id", "description": "Job Id"}, 
+        {"name": "total_jobs", "label": "Total Jobs", "description": "Total Jobs"},
+        {"name": "total_failed", "label": "Failed Jobs", "description": "Failed Jobs"}
+      ]
+    }
+  }
+visualisation: '{"google-chart": {"chartType": "Table"}}'
+query: |-
+  SELECT
+    job_id "mdj.job_id"
+    , SUM(total_jobs) "mdj.total_jobs"
+    , SUM(total_failed_jobs) "mdj.total_failed"
+  FROM meltano_daily_jobs_by_job_id mdj
+  WHERE date >= current_date - interval '30' day
+  GROUP BY job_id
+  ORDER BY SUM(total_failed_jobs) DESC
+  LIMIT 10

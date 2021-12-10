@@ -1,0 +1,46 @@
+version: datasets/v0.2
+source: tap-googleads
+title: Meltano Daily Job Stats Last 30 Days
+questions: Whats the breakdown of meltano jobs, successes and failures over the last 30 days?
+description: |-
+  Daily jobs stats for the last 30 days, showing total jobs run, successes and failures.
+  #meltano
+metadata: |-
+  {
+    "name": "mdj",
+    "label": "Meltano Daily Job Stats Last 30 Days", 
+    "related_table": {
+      "columns": [
+        {"name": "date", "label": "Date", "description": "Date"}
+      ],
+      "aggregates": [
+        {"name": "total_jobs", "label": "Total Jobs", "description": "Total Jobs"},
+        {"name": "successful_jobs", "label": "Successful Jobs", "description": "Successful Jobs"},
+        {"name": "failed_jobs", "label": "Failed Jobs", "description": "Failed Jobs"}
+      ]
+    }
+  }
+visualisation: |-
+  {"chartjs-chart": 
+    {"chartType": "line", 
+      "options": {
+        "scales": {
+          "yAxes": [{
+            "ticks": {
+              "beginAtZero": true
+            }
+          }]
+        }
+      }
+    }
+  }
+query: |-
+  SELECT
+    date "mdj.date"
+    , SUM(total_jobs) "mdj.total_jobs"
+    , SUM(total_successful_jobs) "mdj.successful_jobs"
+    , SUM(total_failed_jobs) "mdj.failed_jobs"
+  FROM meltano_daily_jobs mdj
+  WHERE date >= current_date - interval '30' day
+  GROUP BY date
+  ORDER BY date DESC

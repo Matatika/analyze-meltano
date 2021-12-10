@@ -1,0 +1,28 @@
+version: datasets/v0.2
+source: tap-meltano
+title: Meltano Monthly Jobs Stats Last 12 Months
+questions: What are the overall stats by month for my Meltano jobs?
+description: |-
+  Meltano monthly jobs stats for the last 12 months.
+  #meltano
+metadata: |-
+  {
+    "name": "meltano_monthly_jobs",
+    "label": "Meltano Monthly Jobs Stats Last 12 Months", 
+    "related_table": {
+      "columns": [
+        {"name": "month", "label": "Month", "description": "Month"}, 
+        {"name": "total_jobs", "label": "Total Jobs", "description": "Total Jobs"},
+        {"name": "total_successful_jobs", "label": "Successful Jobs", "description": "Successful Jobs"},
+        {"name": "total_failed_jobs", "label": "Failed Jobs", "description": "Failed Jobs"},
+        {"name": "average_job_duration", "label": "Average Job Duration", "description": "Average Job Duration"},
+        {"name": "total_job_duration", "label": "Total Job Duration", "description": "Total Job Duration"}
+      ]
+    }
+  }
+visualisation: '{"google-chart": {"chartType": "Table"}}'
+query: |-
+  SELECT
+    *
+  FROM meltano_monthly_jobs
+  LIMIT 12
