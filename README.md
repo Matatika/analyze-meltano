@@ -1,3 +1,4 @@
+<a href="https://github.com/Matatika/analyze-meltano/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/Matatika/analyze-meltano"></a>
 # analyze-meltano
 
 Meltano project [file bundle](https://meltano.com/docs/command-line-interface.html#file-bundle) of Matatika datasets for `tap-meltano`. These datasets are automatically added to your Matatika workspace when you initialize a 
