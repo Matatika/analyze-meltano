@@ -1,5 +1,5 @@
 version: datasets/v0.2
-source: tap-googleads
+source: tap-meltano
 title: Meltano Daily Job Stats Last 30 Days
 questions: Whats the breakdown of meltano jobs, successes and failures over the last 30 days?
 description: |-
