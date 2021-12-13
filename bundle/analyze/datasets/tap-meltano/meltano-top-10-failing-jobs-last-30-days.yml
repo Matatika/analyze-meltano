@@ -4,7 +4,9 @@ title: Top 10 Failing Meltano Jobs Last 30 Days
 questions: In the last 30 days, what Meltano jobs are failing the most?
 description: |-
   Top 10 failing Meltano jobs for the last 30 days.
+
   #meltano
+  #meltano-failing-jobs
 metadata: |-
   {
     "name": "mdj",

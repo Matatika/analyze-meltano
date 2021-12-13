@@ -4,7 +4,9 @@ title: Most Recent 10 Failing Meltano Jobs
 questions: What are my most recently failing Meltano jobs?
 description: |-
   10 most recently failing Meltano jobs.
-  #meltano
+  
+  #meltano 
+  #meltano-failing-jobs
 metadata: |-
   {
     "name": "mj",
@@ -28,7 +30,7 @@ query: |-
     , payload "mj.payload"
     , started_at "mj.started_at"
     , ended_at "mj.ended_at"
-    , job_duration "mj.job_duration"
+    , TO_CHAR(job_duration, 'HH24:MM:SS') "mj.job_duration"
   FROM meltano_jobs mj
   WHERE state = 'FAIL'
   ORDER BY started_at DESC
