@@ -25,10 +25,10 @@ query: |-
   SELECT 
     job_id "mdj.job_id"
     , SUM(total_jobs) "mdj.total_jobs"
-    , SUM(total_job_duration) "mdj.total_duration"
-    , DATE_TRUNC('second', AVG(average_job_duration)) "mdj.avg_duration"
     , SUM(total_successful_jobs) "mdj.successful_jobs"
     , SUM(total_failed_jobs) "mdj.failed_jobs"
+    , TO_CHAR(DATE_PART('epoch', DATE_TRUNC('second', AVG(average_job_duration))) * INTERVAL '1 seconds', 'HH24:MM:SS') "mdj.avg_duration"
+    , TO_CHAR(DATE_PART('epoch', SUM(total_job_duration)) * INTERVAL '1 seconds', 'HH24:MM:SS') "mdj.total_duration"
   FROM meltano_daily_jobs_by_job_id mdj 
   GROUP BY job_id
   ORDER BY "mdj.total_jobs" DESC
