@@ -1,15 +1,15 @@
 version: datasets/v0.2
 source: tap-meltano
-title: Meltano Monthly Jobs Stats Last 12 Months
+title: Meltano Monthly Jobs Stats Last 6 Months
 questions: What are the overall stats by month for my Meltano jobs?
 description: |-
-  Meltano monthly jobs stats for the last 12 months.
+  Meltano monthly jobs stats for the last 6 months.
   
   #meltano
 metadata: |-
   {
     "name": "mmj",
-    "label": "Meltano Monthly Jobs Stats Last 12 Months", 
+    "label": "Meltano Monthly Jobs Stats Last 6 Months", 
     "related_table": {
       "columns": [
         {"name": "month", "label": "Month", "description": "Month"}, 
@@ -31,4 +31,4 @@ query: |-
     , TO_CHAR(DATE_PART('epoch', average_job_duration) * INTERVAL '1 seconds', 'HH24:MM:SS') "mmj.average_job_duration"
     , TO_CHAR(DATE_PART('epoch', total_job_duration) * INTERVAL '1 seconds', 'HH24:MM:SS') "mmj.total_job_duration"
   FROM meltano_monthly_jobs mmj
-  LIMIT 12
+  LIMIT 6

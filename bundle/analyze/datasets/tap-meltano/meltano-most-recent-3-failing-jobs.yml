@@ -1,16 +1,16 @@
 version: datasets/v0.2
 source: tap-meltano
-title: Most Recent 10 Failing Meltano Jobs
+title: Most Recent 3 Failing Meltano Jobs
 questions: What are my most recently failing Meltano jobs?
 description: |-
-  10 most recently failing Meltano jobs.
+  3 most recently failing Meltano jobs.
   
   #meltano 
   #meltano-failing-jobs
 metadata: |-
   {
     "name": "mj",
-    "label": "Most Recent 10 Failing Meltano Jobs", 
+    "label": "Most Recent 3 Failing Meltano Jobs", 
     "related_table": {
       "columns": [
         {"name": "job_id", "label": "Job Id", "description": "Job Id"}, 
@@ -34,4 +34,4 @@ query: |-
   FROM meltano_jobs mj
   WHERE state = 'FAIL'
   ORDER BY started_at DESC
-  LIMIT 10
+  LIMIT 3
