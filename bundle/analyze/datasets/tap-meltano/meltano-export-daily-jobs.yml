@@ -13,8 +13,8 @@ query: |-
   SELECT
     date
     , total_jobs
-    , TO_CHAR(DATE_PART('epoch', average_job_duration) * INTERVAL '1 seconds', 'HH24:MM:SS') "average_job_duration"
-    , TO_CHAR(DATE_PART('epoch', total_job_duration) * INTERVAL '1 seconds', 'HH24:MM:SS') "total_job_duration"
+    , TO_CHAR(DATE_PART('epoch', average_job_duration) * INTERVAL '1 seconds', 'HH24:MI:SS') "average_job_duration"
+    , TO_CHAR(DATE_PART('epoch', total_job_duration) * INTERVAL '1 seconds', 'HH24:MI:SS') "total_job_duration"
     , total_successful_jobs
     , total_failed_jobs 
   FROM meltano_daily_jobs

@@ -24,7 +24,7 @@ visualisation: '{"google-chart": {"chartType": "Table"}}'
 query: |-
   SELECT 
     job_id "mdj.job_id"
-    , count(total_jobs) "mdj.total"
+    , sum(total_jobs) "mdj.total"
     , sum(total_failed_jobs) "mdj.failed"
     , sum(total_successful_jobs) "mdj.successful"
   FROM meltano_daily_jobs_by_job_id mdj

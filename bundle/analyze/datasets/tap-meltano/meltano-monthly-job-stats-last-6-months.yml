@@ -28,7 +28,7 @@ query: |-
     , total_jobs "mmj.total_jobs"
     , total_successful_jobs "mmj.total_successful_jobs"
     , total_failed_jobs "mmj.total_failed_jobs"
-    , TO_CHAR(DATE_PART('epoch', average_job_duration) * INTERVAL '1 seconds', 'HH24:MM:SS') "mmj.average_job_duration"
-    , TO_CHAR(DATE_PART('epoch', total_job_duration) * INTERVAL '1 seconds', 'HH24:MM:SS') "mmj.total_job_duration"
+    , TO_CHAR(DATE_PART('epoch', average_job_duration) * INTERVAL '1 seconds', 'HH24:MI:SS') "mmj.average_job_duration"
+    , TO_CHAR(DATE_PART('epoch', total_job_duration) * INTERVAL '1 seconds', 'HH24:MI:SS') "mmj.total_job_duration"
   FROM meltano_monthly_jobs mmj
   LIMIT 6

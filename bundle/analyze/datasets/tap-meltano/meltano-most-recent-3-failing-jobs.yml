@@ -30,7 +30,7 @@ query: |-
     , payload "mj.payload"
     , started_at "mj.started_at"
     , ended_at "mj.ended_at"
-    , TO_CHAR(job_duration, 'HH24:MM:SS') "mj.job_duration"
+    , TO_CHAR(job_duration, 'HH24:MI:SS') "mj.job_duration"
   FROM meltano_jobs mj
   WHERE state = 'FAIL'
   ORDER BY started_at DESC
