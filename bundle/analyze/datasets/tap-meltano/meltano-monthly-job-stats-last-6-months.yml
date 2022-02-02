@@ -4,7 +4,7 @@ title: Meltano Monthly Jobs Stats Last 6 Months
 questions: What are the overall stats by month for my Meltano jobs?
 description: |-
   Meltano monthly jobs stats for the last 6 months.
-  
+
   #meltano
 metadata: |-
   {
@@ -28,7 +28,7 @@ query: |-
     , total_jobs "mmj.total_jobs"
     , total_successful_jobs "mmj.total_successful_jobs"
     , total_failed_jobs "mmj.total_failed_jobs"
-    , TO_CHAR(DATE_PART('epoch', average_job_duration) * INTERVAL '1 seconds', 'HH24:MI:SS') "mmj.average_job_duration"
-    , TO_CHAR(DATE_PART('epoch', total_job_duration) * INTERVAL '1 seconds', 'HH24:MI:SS') "mmj.total_job_duration"
+    , average_job_duration "mmj.average_job_duration"
+    , total_job_duration "mmj.total_job_duration"
   FROM meltano_monthly_jobs mmj
   LIMIT 6

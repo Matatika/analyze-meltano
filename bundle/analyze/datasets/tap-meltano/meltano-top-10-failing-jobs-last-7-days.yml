@@ -26,7 +26,7 @@ query: |-
     , SUM(total_jobs) "mdj.total_jobs"
     , SUM(total_failed_jobs) "mdj.total_failed"
   FROM meltano_daily_jobs_by_job_id mdj
-  WHERE date >= current_date - interval '7' day
+  WHERE date >= current_date - interval '7 day'
   GROUP BY job_id
   ORDER BY SUM(total_failed_jobs) DESC
   LIMIT 10

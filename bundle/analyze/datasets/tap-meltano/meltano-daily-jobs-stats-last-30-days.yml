@@ -42,6 +42,6 @@ query: |-
     , SUM(total_successful_jobs) "mdj.successful_jobs"
     , SUM(total_failed_jobs) "mdj.failed_jobs"
   FROM meltano_daily_jobs mdj
-  WHERE date >= current_date - interval '30' day
+  WHERE date >= current_date - interval '30 day'
   GROUP BY date
   ORDER BY date DESC
