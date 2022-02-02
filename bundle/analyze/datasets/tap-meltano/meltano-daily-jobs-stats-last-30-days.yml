@@ -4,7 +4,7 @@ title: Meltano Daily Job Stats Last 30 Days
 questions: Whats the breakdown of meltano jobs, successes and failures over the last 30 days?
 description: |-
   Daily jobs stats for the last 30 days, showing total jobs run, successes and failures.
-  
+
   #meltano
 metadata: |-
   {
@@ -28,7 +28,8 @@ visualisation: |-
         "scales": {
           "yAxes": [{
             "ticks": {
-              "beginAtZero": true
+              "beginAtZero": true,
+              "stepSize": 1
             }
           }]
         }
