@@ -12,6 +12,7 @@ venv.bak/
 # Converted HTML Datasets
 *.html
 html_charts/
+output/
 
 .project
 
